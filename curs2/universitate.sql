@@ -118,3 +118,4 @@ SELECT * FROM `profesor` WHERE grad_didactic IN('I', 'II');
 SELECT * FROM `cursuri`WHERE an =2 AND semestru =2;
 SELECT * FROM `student` WHERE prenume LIKE 'ion%';
 SELECT * FROM `student` WHERE MONTH(data_nastere) ='09' AND DAY(data_nastere) ='21';
+SELECT an , COUNT(id) as nr_student FROM `student` GROUP BY an HAVING nr_student >=9;
