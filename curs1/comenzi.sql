@@ -4,8 +4,8 @@ USE demo;
 CREATE TABLE `demo`.`studenti` (
     `id` INT UNSIGNED NOT NULL AUTO_INCREMENT , 
     `nume` VARCHAR(100) NOT NULL , 
-    `prenune` VARCHAR(100) NOT NULL , `
-    telefon` CHAR(10) NOT NULL , 
+    `prenune` VARCHAR(100) NOT NULL , 
+    `telefon` CHAR(10) NOT NULL , 
     `email` VARCHAR(200) NOT NULL , 
     `data_adaugare` TIMESTAMP NOT NULL DEFAULT CURRENT_TIMESTAMP , 
     PRIMARY KEY (`id`)) 
