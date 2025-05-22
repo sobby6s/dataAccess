@@ -19,6 +19,7 @@ const findAll = (callback) => {
                 email: row.email,
                 datanastere: row.datanastere,
                 telefon: row.telefon,
+                cnp: row.cnp,
                 dataadaugare: row.dataadaugare,
                 actiune: "",
             };
@@ -53,7 +54,7 @@ exports.findOne = findOne;
 const create = (user, callback) => {
     const queryString = "INSERT INTO jsusers (nume, prenume, email, datanastere, telefon, cnp) VALUES (?, ?, ?, ?, ?, ?)";
     console.log(user);
-    db_1.db.query(queryString, [user.nume, user.prenume, user.email, user.datanastere, user.cnp, user.telefon], (err, result) => {
+    db_1.db.query(queryString, [user.nume, user.prenume, user.email, user.datanastere, user.telefon, user.cnp], (err, result) => {
         if (err) {
             callback(err);
         }

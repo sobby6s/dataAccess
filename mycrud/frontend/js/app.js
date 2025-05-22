@@ -43,7 +43,7 @@ $(document).ready(function ($) {
         //console.log(data);
         $('#example').dataTable({
             "paging": true,
-            "pageLength": 2,
+            "pageLength": 10,
             processing: true,
             serverSide: false,
             "data": data.data,
@@ -53,6 +53,7 @@ $(document).ready(function ($) {
                 { "data": "prenume" },
                 { "data": "email" },
                 { "data": "telefon" },
+                { "data": "cnp" },
                 {
                     "data": "datanastere",
                     render: $.fn.dataTable.render.moment('YYYY-MM-DDTHH:mm:ss.SSSSZ','YYYY-MM-DD' )
@@ -79,7 +80,7 @@ $(document).ready(function ($) {
     //   Editeaza utilizator
     $('body').on('click', '.edit', function () {
         var id = $(this).data('id');
-        $('#userModel').html("Edit User");
+        $('#userModel').html("Edit User aaaaaaaa");
         $('#btn-save').val("editUser");
         $('#user-model').modal('show');
         // ajax
@@ -94,13 +95,14 @@ $(document).ready(function ($) {
                  console.log(res.data.id);
                 
                 let datan= moment(res.data.datanastere).format('YYYY-MM-DD');  
-                alert(datan);
+                // alert(datan);
                 $('#id').val(res.data.id);
                 $('#lname').val(res.data.nume);
                 $('#fname').val(res.data.prenume);
                 $('#email').val(res.data.email);
                 $('#age').val(datan);
                 $('#phone').val(res.data.telefon);
+                $('#cnp').val(res.data.cnp);
 
 
 
@@ -132,8 +134,8 @@ $(document).ready(function ($) {
         var idValue = document.getElementById("id").value;
         var nume = document.getElementById("lname").value;
         var prenume = document.getElementById("fname").value;
-        alert(idValue == '');
-        console.log('am id', idValue);
+        // alert(idValue == '');
+        // console.log('am id', idValue);
         let method = 'POST';
         let urlReq = "http://localhost:3002/users/"
         if (idValue != '') {
@@ -143,8 +145,8 @@ $(document).ready(function ($) {
         else {
             idValue
         }
-        alert(method);
-        alert(urlReq);
+        // alert(method);
+        // alert(urlReq);
         $.ajax({
 
             type: method,
@@ -166,7 +168,7 @@ $(document).ready(function ($) {
             },
             complete: function () {
                 $('#user-model').modal('hide');
-                window.location.reload();
+                //window.location.reload();
             }
         });
     });
