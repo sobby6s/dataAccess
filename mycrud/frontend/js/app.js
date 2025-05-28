@@ -147,16 +147,20 @@ $(document).ready(function ($) {
         }
         // alert(method);
         // alert(urlReq);
+        let formData = new FormData(form[0]);
         $.ajax({
 
             type: method,
             url: urlReq,
-            data: $(this).serialize(), // get all form field value in 
+            // data: $(this).serialize(), // get all form field value in 
             // data:{
             //     nume:nume,
             //     prenume:prenume,
             //     id:idValue
             // },
+            data : formData,
+            contentType:false,
+            processData:false,
             dataType: 'json',
             success: function (res) {
                 console.log('am primit', res);
